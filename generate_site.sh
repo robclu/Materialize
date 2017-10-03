@@ -1,1 +1,0 @@
-babel-node --presets react,es2015 react/index.js

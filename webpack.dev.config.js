@@ -12,7 +12,7 @@ module.exports = {
   // Put the generated file into the assest folder for Jekyll to use.
   output: {
     filename : 'bundle.js',
-    path     : __dirname + 'public/assets/js/',
+    path     : __dirname + '/public/assets/js/',
   },
     module: {
       loaders: [
@@ -34,17 +34,17 @@ module.exports = {
           include : /flexboxgrid/,
         },
        ],
-     },
+      },
       plugins: [
         new webpack.DefinePlugin({ 
-          'process.env.NODE_ENV': '"production"'
+          'process.env.NODE_ENV': '"development"'
         }),
         new webpack.optimize.UglifyJsPlugin(),
         new BundleAnalyzerPlugin({
           analyzerMode: 'server',
           analyzerPort: 8880
         })
-      ]
+      ],
     resolve: {
       extensions: ['.js', '.jsx'] 
     },

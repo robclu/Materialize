@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Route, IndexRoute } from 'react-router';
 
-import App from './components/app';
+import App   from './components/app';
+import About from './containers/about';
 
-export default (
-  <Route path="/" component={App} >
-  </Route>
-);
+class Routes  extends Component {
+  render() {
+    return (
+      <Route path="/" component={App}>
+        <Route path="about/" component={About} />
+      </Route>
+    );
+  }
+};
+
+export default Routes;

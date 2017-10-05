@@ -7,19 +7,21 @@ import Main   from './Main'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme'
 
-const toolbarStyle = {
+import { grey900, white } from 'material-ui/styles/colors'
+
+const defaultTheme = getMuiTheme(lightBaseTheme, {
   palette: {
-    alternateTextColor: blueA400,
-    pickerHeaderColor: blueA400,
-    primary3Color: blueA400,
-    accent2
+    accent2Color       : grey900,
+    textColor          : white,
+    alternateTextColor : white,
   }
-};
+})
 
 const App = () => (
   <div>
-    <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+    <MuiThemeProvider muiTheme={defaultTheme}>
       <div>
         <Header/>
         <Main/>

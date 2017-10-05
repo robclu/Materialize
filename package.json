@@ -16,6 +16,7 @@
     "react-tap-event-plugin": "^3.0.2",
     "redux": "^3.7.2",
     "redux-simple-promise": "^2.0.2",
+    "simple-assign": "^0.1.0",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0"
   },

@@ -21,7 +21,7 @@ description       : >- # this means to ignore newlines until "baseurl:"
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 baseurl           : "" # the subpath of your site, e.g. /blog
-url               : "127.0.0.1:8880" # the base hostname & protocol for your site
+url               : "127.0.0.1:4000" # the base hostname & protocol for your site
 twitter_username  :
 github_username   : robclu
 
@@ -43,12 +43,23 @@ assets:
     css : sass
     js  : false
 
+  prefix: "/assets"
+
   sources:
-    - src/_assets/js
     - src/_assets/css
+    - src/_assets/js
+
+  assets:
+    - "*.png"
+    - "*.jpg"
+    - "*.svg"
+    - "bundle.css"
+    - "*.css"
 
   features:
-    liquid: false
+    liquid             : false
+    automatic_img_size : true
+    automatic_img_alt  : true
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

@@ -35,14 +35,51 @@ const toolbarLinkStyle = {
 };
 
 class ToolbarLink extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hovered           : false,
+      isKeyboardFocused : false,
+      animating         : false,
+      animated          : false
+    };
+    this.handleMouseEnter = (event) => {
+      if (!this.state.animating || this.state.animated) {
+        this.setState({ hovered: true, animating: true });
+      }
+      this.props.onMouseEnter(event);
+    }
+    this.handleMouseLeave = (event) => {
+      this.setState({ hovered: false });
+      this.props.onMouseLeave(event);
+    }
+    this.handleKeyboardFocus = (event, isKeyboardFocused) => {
+      this.setState({ isKeyboardFocused: isKeyboardFocused });
+      this.props.onKeyboardFocus(event, isKeyboardFocused);
+    }
+  }
+
+  componentDidMount() {
+    var onAnimationEnd = () => {
+      this.setState({ animating : false,
+                      animated  : true,
+                      hovered   : this.state.hovered });
+    }
+    this.link.addEventListener('animationend'  , onAnimationEnd);
+    this.link.addEventListener('transitionend', onAnimationEnd);
+  }
+
   render() {
     var muiTheme       = this.context.muiTheme,
         buttonHeight   = muiTheme.button.height,
         buttonMinWidth = muiTheme.button.minWidth,
-        buttonColor    = muiTheme.flatButton.color,
-        buttonHovColor = muiTheme.flatButton.buttonFilterColor,
+        buttonColor    = muiTheme.baseTheme.palette.textColor,
+        buttonHovColor = muiTheme.baseTheme.palette.primary1Color,
+        backgroundColor= muiTheme.toolbar.backgroundColor,
         fontSize       = muiTheme.flatButton.fontSize,
-        fontWeight     = muiTheme.flatButton.fontWeight;
+        fontWeight     = muiTheme.flatButton.fontWeight,
+        hovered        = this.state.hovered || this.state.isKeyboardFocused,
+        color          = (hovered || this.state.animating) ? buttonHovColor : buttonColor;
 
     var style = {
       border          : muiTheme.button.height,
@@ -50,8 +87,8 @@ class ToolbarLink extends Component {
       height          : buttonHeight,
       lineHeight      : buttonHeight + 'px',
       minWidth        : buttonMinWidth,
-      color           : muiTheme.flatButton.textColor,
-      backgroundColor : buttonColor,
+      color           : color,
+      backgroundColor : backgroundColor,
       textTransform   : 'uppercase',
       fontWeight      : fontWeight,
       fontSize        : fontSize,
@@ -70,22 +107,38 @@ class ToolbarLink extends Component {
       verticalAlign: 'middle'
     };
 
+    var className = (hovered || this.state.animating) ? "toolbar-item" : "";
     var finalStyle = this.context.muiTheme.prepareStyles(internalStyle);
     return(
-      <a href={this.props.href} style={style}>
+      <a href={this.props.href}
+         className={className}
+         ref={(link) => { this.link = link}}
+         style={style}
+         onMouseEnter={this.handleMouseEnter}
+         onMouseLeave={this.handleMouseLeave}>
         <div><span style={finalStyle}>{this.props.label}</span></div>
       </a>
     )
   }
 }
 
+ToolbarLink.defaultProps = {
+  href: "",
+  onKeyboardFocus : () => {},
+  onMouseEnter    : () => {},
+  onMouseLeave    : () => {}
+};
+
 ToolbarLink.contextTypes = {
   muiTheme: PropTypes.object
 };
 
 ToolbarLink.propTypes = {
-  href: PropTypes.string,
-  label: PropTypes.string
+  href           : PropTypes.string,
+  label          : PropTypes.string,
+  onKeyboardFocus: PropTypes.func,
+  onMouseEnter   : PropTypes.func,
+  onMouseLeave   : PropTypes.func
 }
 
 class Header extends Component {

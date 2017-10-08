@@ -20,8 +20,9 @@ class Header extends Component {
           </FlatButton>
         </ToolbarGroup>
         <ToolbarGroup>
-          <ToolbarItem href="/" label="Home" />
-          <ToolbarItem label="About" href="/about"/>
+          <ToolbarItem label="Home"     href="/"/>
+          <ToolbarItem label="About"    href="/about"/>
+          <ToolbarItem label="Blog"     href="/blog"/>
           <ToolbarItem label="Projects" href="/projects"/>
         </ToolbarGroup>
       </Toolbar>

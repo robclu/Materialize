@@ -10,6 +10,24 @@ const IntroHeader = (props) => {
 	)
 }
 
+const IntroList = (props) => {
+	return (
+		<div>
+		<ul>
+			{
+				props.list.map((name, i, listObj) => {
+					if (i === listObj.length - 1) {
+						return <li className="intro-element">{name}</li>
+					} else {
+						return <li className="intro-element">{name}<span>-</span></li>
+					}
+				})
+			}
+		</ul>
+		</div>
+	)
+}
+
 class Intro extends Component {
 	constructor(props) {
 		super(props);
@@ -21,7 +39,8 @@ class Intro extends Component {
 				<div className="banner-vcenter">
 					<div className="container">
 						<div className="banner-content">
-								<IntroHeader introText="Hi, I am" mainText="Rob Clucas"/>
+								<IntroHeader introText="Hello and" mainText="Welcome"/>
+								<IntroList list={["Software Developer", "Student"]} />
 						</div>
 					</div>
 				</div>

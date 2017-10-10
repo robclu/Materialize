@@ -1,0 +1,10 @@
+{
+  "name": "Rob Clucas",
+  "email": "robjclucas@gmail.com",
+  "location": "Cambridge, UK",
+  "phone": "+27823275135",
+  "github": "https://www.github.com/robclu",
+  "linkedin": "https://www.linkedin.com/in/robert-clucas-24961a106",
+  "stack-overflow": "https://stackoverflow.com/users/5825717/robclucas?tab=profile",
+  "description": "Hello and welcome to my blog! This is where I write about programming-related things. I hope that you find something useful here.\nThe focus is mostly on C++ and most likely performance related things, such as concurrency, parallelism (GPGPU), distributed computing, and graphics, as well as the process I have gone through designing some of the code I have written. I also do some Python and some front-end Javascript work, so some of that may filter in.\nI'm currently doing my PhD in the Physics department at the University of Cambridge, looking at accelerating computational fluid dynamics using GPUs, so there may also be some physics related posts.\nPlease feel free to leave comments, and point out any errors and/or improvements. What I write is just my opinion, so don't take it to be the truth :)"
+}

@@ -3,21 +3,25 @@ import { connect } from 'react-redux'
 import { Toolbar, ToolbarGroup } from 'material-ui/Toolbar'
 import { fetchSiteInfo } from '../actions/index'
 import FlatButton from 'material-ui/FlatButton'
+
 import ToolbarItem from './ToolbarItem'
+import ToolbarLogo from './ToolbarLogo'
 
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = { open: true, width: 1200, height: null }
   }
 
   render() {
     return (
-      <Toolbar style={{height: '64px'}}>
+      <Toolbar style={{position : 'fixed',
+                       height   : '64px' ,
+                       left     : '0'    ,
+                       top      : '0'    ,
+                       width    : '100%' ,
+                       zIndex   : '99999'}}>
         <ToolbarGroup>
-          <FlatButton style={{height: '60px'}}>
-            <img src="static/img/logo/BlogLogoSmall.png"/>
-          </FlatButton>
+          <ToolbarLogo href="/" src="static/img/logo/BlogLogoSmall.png"/>
         </ToolbarGroup>
         <ToolbarGroup>
           <ToolbarItem label="Home"     href="/"/>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect }          from 'react-redux';
 import { fetchPage }        from '../actions/index';
-import { Page }             from '../components/page';
+import { Page }             from '../components/Page';
 
 class About extends Component {
   componentWillMount() {

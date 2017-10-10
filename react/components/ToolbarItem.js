@@ -95,7 +95,7 @@ class ToolbarItem extends Component {
 }
 
 ToolbarItem.defaultProps = {
-  href: "",
+  href            : ""      ,
   onKeyboardFocus : () => {},
   onMouseEnter    : () => {},
   onMouseLeave    : () => {}

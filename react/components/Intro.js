@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { fullBlack } from 'material-ui/styles/colors'
 
 const IntroHeader = (props) => {
@@ -34,13 +35,19 @@ class Intro extends Component {
 	}
 
 	render() {
+		var backgroundImage = 'url(' + this.props.backgroundImg + ')';
 		return (
-			<section style={{ height: '1300px', backgroundColor: fullBlack }}>
+			<section style={{ backgroundColor    : this.props.backgroundColor,
+												backgroundImage    : backgroundImage,
+												backgroundPosition : 'center center',
+												backgroundRepeat   : 'no-repeat'    ,
+												backgroundSize 		 : 'cover'       	}}>
 				<div className="banner-vcenter">
 					<div className="container">
 						<div className="banner-content">
-								<IntroHeader introText="Hello and" mainText="Welcome"/>
-								<IntroList list={["Software Developer", "Student"]} />
+								<IntroHeader introText = {this.props.introText}
+														 mainText  = {this.props.mainText} />
+								<IntroList list={this.props.titles} />
 						</div>
 					</div>
 				</div>
@@ -48,5 +55,21 @@ class Intro extends Component {
 		)
 	}
 }
+
+Intro.defaultProps = {
+  introText 		  : "Hello and",
+  mainText        : "Welcome"  ,
+  titles     		  : ["Java Developer", "Distributed Systems Expert"],
+  backgroundImg   : "",
+  backgroundColor : fullBlack
+};
+
+Intro.propTypes = {
+  introText  		  : PropTypes.string,
+  mainText    	  : PropTypes.string,
+  titles    		  : PropTypes.arrayOf(PropTypes.string),
+  backgroundImg   : PropTypes.string,
+  backgroundColor : PropTypes.string
+};
 
 export default Intro;

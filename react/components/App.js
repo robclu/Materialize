@@ -8,25 +8,42 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme'
 
-import { grey900, white } from 'material-ui/styles/colors'
+import { grey900, cyan400, white } from 'material-ui/styles/colors'
 
+import About from './About'
 import Intro from './Intro'
 
 const defaultTheme = getMuiTheme(lightBaseTheme, {
   palette: {
+    primary1Color      : cyan400,
     accent2Color       : grey900,
     textColor          : white,
     alternateTextColor : white,
+  },
+  toolbar: {
+    backgroundColor : ''
+  },
+  about: {
+    backgroundColor : white,
+    titleColor      : cyan400
   }
 })
 
+// Add backgroundColor tag to Intro if no image is supplied
 const App = () => (
   <div>
     <MuiThemeProvider muiTheme={defaultTheme}>
       <div>
         <Header/>
         <Main/>
-        <Intro/>
+        <Intro introText     = "Hello and Welcome, I am"
+               mainText      = "Rob Clucas"
+               backgroundImg = "static/img/backgrounds/IntroBackground.png"
+               titles        = {["PhD Student"        ,
+                                 "C++ Enthusiast"     ,
+                                 "Graphics Enthusiast",
+                                 "Developer"          ]}/>
+        <About profileImage={"static/img/ProfileImage.png"}/>
       </div>
     </MuiThemeProvider>
   </div>

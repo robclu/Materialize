@@ -28,7 +28,7 @@
     "dev": "webpack-dev-server --progress --colors",
     "jekyll": "webpack --config webpack.dev.config.js --progress -p --colors -w",
     "react": "NODE_ENV=development babel-node --presets 'react,es2015' react/index.js",
-    "makeAbout" : "js-yaml src/about.yml > src/info/about.json"
+    "json" : "js-yaml src/about.yml > src/info/about.json && js-yaml src/skills.yml > src/info/skills.json"
   },
   "dependencies": {
     "dompurify": "^1.0.2",

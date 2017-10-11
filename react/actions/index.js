@@ -1,8 +1,9 @@
 import axios from 'axios';
 
-export const FETCH_SITE_INFO = 'FETCH_SITE_INFO';
-export const FETCH_PAGE      = 'FETCH_PAGE';
-export const FETCH_JSON_INFO = 'FETCH_JSON_INFO';
+export const FETCH_SITE_INFO   = 'FETCH_SITE_INFO';
+export const FETCH_PAGE        = 'FETCH_PAGE';
+export const FETCH_ABOUT_INFO  = 'FETCH_ABOUT_INFO';
+export const FETCH_SKILLS_INFO = 'FETCH_SKILLS_INFO';
 
 const ROOT_URL = 'http://127.0.0.1:4000';
 const API_URL  = '/api/v1/';
@@ -28,11 +29,11 @@ export function fetchPage(title, url) {
   };
 }
 
-export function fetchJsonInfo(component) {
-  const path    = `${ROOT_URL}/info/${component}.json`;
+export function fetchJsonInfo(type, filename) {
+  const path    = `${ROOT_URL}/info/${filename}.json`;
   const request = axios.get(path);
   return {
-    type    : FETCH_JSON_INFO,
+    type    : type,
     payload : {
       promise: request
     }

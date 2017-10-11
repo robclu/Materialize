@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect }          from 'react-redux'
-import { fetchJsonInfo }    from '../actions/index'
-import Paper                from 'material-ui/Paper'
+import { fetchJsonInfo, FETCH_ABOUT_INFO } from '../actions/index'
 import PropTypes from 'prop-types'
 
 class AboutInfo extends Component {
@@ -10,10 +9,6 @@ class AboutInfo extends Component {
   }
 
   render() {
-    console.log(this.props.about.description);
-    var d = String(this.props.about.description);
-    var x = d.replace(/\n/g,"\n\n");
-    console.log(x);
     return (
       <div className="profile-info">
         <div style={{marginBottom : '20px', marginTop : '25px'}}>
@@ -24,9 +19,8 @@ class AboutInfo extends Component {
                        color         : this.props.theme.about.titleColor }}>
             About
           </h2>
-          <p style={{fontSize     : '18',
-                     fontWeight   : '300' ,
-                     fontStyle    : 'italic',
+          <p style={{fontSize     : '19px',
+                     fontWeight   : '400' ,
                      color        : '#666',
                      borderBottom : '1px solid rgba(0,0,0,.2)',
                      paddingBottom: '30px',
@@ -81,7 +75,7 @@ class AboutSocial extends Component {
               return;
             }
 
-            var iconClass = "fa fa-" + key;
+            var iconClass = "fa fa-" + key + ' hoverable';
             return (
               <li>
                 <a href      = {this.props.about[key]}
@@ -102,28 +96,25 @@ class AboutSocial extends Component {
 class About extends Component {
   constructor(props) {
     super(props);
-    this.props.fetchJsonInfo('about');
+    this.props.fetchJsonInfo(FETCH_ABOUT_INFO, 'about');
   }
 
   render() {
     // Run spinner to show that data is being fetched.
-    if (!this.props.aboutJsonData) {
+    if (!this.props.jsonData.about) {
       console.log("waiting!!");
       return;
     }
 
     var theme = this.context.muiTheme;
-    var about = this.props.aboutJsonData.data;
+    var about = this.props.jsonData.about;
+    console.log(this.props.jsonData.about);
     return (
       <div className="container"
+           id       ="about"
            style    ={{ backgroundColor: theme.about.backgroundColor}}>
         <div className="row">
-          <div className="col s6 m4 offset-m1">
-            <div className="profile-image">
-              <img src={this.props.profileImage} />
-            </div>
-          </div>
-          <div className="col s6 m5 offset-m1">
+          <div className="col s12 m8 l6 offset-m2 offset-l3">
             <AboutInfo about={about} theme={theme} />
             <AboutSocial about={about} theme={theme} />
           </div>
@@ -139,7 +130,7 @@ About.contextTypes = {
 
 function mapStateToProps(state) {
   return {
-    aboutJsonData: state.jsonInfo
+    jsonData: state.jsonInfo
   };
 }
 

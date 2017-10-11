@@ -1,0 +1,44 @@
+{
+  "languages": {
+    "C++": {
+      "level": 8,
+      "libraries": [
+        "C++17",
+        "Boost",
+        "Cuda",
+        "OpenCL",
+        "Vulkan",
+        "OpenGL"
+      ]
+    },
+    "Python": {
+      "level": 5,
+      "libraries": [
+        "Numpy",
+        "Tensorflow",
+        "Matplotlib"
+      ]
+    },
+    "Javascript": {
+      "level": 5,
+      "libraries": [
+        "React",
+        "Three"
+      ]
+    },
+    "Swift": {
+      "level": 5
+    }
+  },
+  "tools": {
+    "Vim": {
+      "level": 7
+    },
+    "LaTex": {
+      "level": 8
+    },
+    "CMake": {
+      "level": 7
+    }
+  }
+}

@@ -25,7 +25,7 @@ class Header extends Component {
         </ToolbarGroup>
         <ToolbarGroup>
           <ToolbarItem label="Home"     href="/"/>
-          <ToolbarItem label="About"    href="/about"/>
+          <ToolbarItem label="About"    href="#about"/>
           <ToolbarItem label="Blog"     href="/blog"/>
           <ToolbarItem label="Projects" href="/projects"/>
         </ToolbarGroup>

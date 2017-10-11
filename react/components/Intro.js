@@ -44,10 +44,12 @@ class Intro extends Component {
 												backgroundSize 		 : 'cover'       	}}>
 				<div className="banner-vcenter">
 					<div className="container">
-						<div className="banner-content">
+						<div className="row">
+							<div className="col s12 m8 l6 offset-m2 offset-l3 banner-content">
 								<IntroHeader introText = {this.props.introText}
 														 mainText  = {this.props.mainText} />
 								<IntroList list={this.props.titles} />
+							</div>
 						</div>
 					</div>
 				</div>

@@ -10,8 +10,9 @@ import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme'
 
 import { grey900, cyan400, white } from 'material-ui/styles/colors'
 
-import About from './About'
-import Intro from './Intro'
+import About  from './About'
+import Intro  from './Intro'
+import Skills from './Skills'
 
 const defaultTheme = getMuiTheme(lightBaseTheme, {
   palette: {
@@ -26,6 +27,10 @@ const defaultTheme = getMuiTheme(lightBaseTheme, {
   about: {
     backgroundColor : white,
     titleColor      : cyan400
+  },
+  skills : {
+    backgroundColor : cyan400,
+    titleColor      : white
   }
 })
 
@@ -43,7 +48,8 @@ const App = () => (
                                  "C++ Enthusiast"     ,
                                  "Graphics Enthusiast",
                                  "Developer"          ]}/>
-        <About profileImage={"static/img/ProfileImage.png"}/>
+        <About  />
+        <Skills />
       </div>
     </MuiThemeProvider>
   </div>

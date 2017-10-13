@@ -8,7 +8,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme'
 
-import { grey900, cyan400, white } from 'material-ui/styles/colors'
+import { grey900, cyan400, white, fullBlack } from 'material-ui/styles/colors'
 
 import About  from './About'
 import Intro  from './Intro'
@@ -30,7 +30,8 @@ const defaultTheme = getMuiTheme(lightBaseTheme, {
   },
   skills : {
     backgroundColor : cyan400,
-    titleColor      : white
+    titleColor      : white,
+    accentColor     : white
   }
 })
 

@@ -3,6 +3,53 @@ import { connect }          from 'react-redux'
 import { fetchJsonInfo, FETCH_SKILLS_INFO } from '../actions/index'
 import PropTypes from 'prop-types'
 
+class SingleSkill extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    var accentColor = this.props.theme.skills.accentColor;
+    return (
+      <div className="skills-item"
+           style={{ width           : '120px' }}>
+        <div className="skill">
+          <div className="skill-bottom">
+            <div className="skill-header z-depth-0"
+                style={{ backgroundColor : accentColor }}>
+              <div className="skill-visible">
+                <span className="skill-name"
+                      style={{ color : accentColor }}>
+                    {this.props.skillName}
+                </span>
+                <div className="header-point z-depth-0"
+                     style={{ backgroundColor : accentColor }}>
+                  <div className="header-point-top z-depth-0"
+                       style={{ backgroundColor : accentColor }}>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="skill-filler">
+              <ul>
+              {
+                //if (this.props.skillFiller.length === 0) {
+                //  return;
+               // }
+
+                this.props.skillFiller.map(fillerName => {
+                  //return (<li>{fillerName}</li>);
+                })
+              }
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+
 class Skills extends Component {
   constructor(props) {
     super(props);
@@ -28,34 +75,22 @@ class Skills extends Component {
   }
 
   createLanguageTab(languages) {
-    console.log(languages);
     return (
-      <div>
-        <ul>
-        {
-          languages.map((language) => {
-            console.log(language[2].libraries);
-            var libraries = []
-            for (var lib in language[2].libraries) {
-              libraries.push(lib);
-            }
-            //console.log(libraries);
-            return (
-              <li>
-                <span>{language[1]}</span>
-                <ul>
-                {
-                  libraries.map((library) => {
-                    //console.log(library);
-                    return (<li>{library}</li>);
-                  })
-                }
-                </ul>
-              </li>
-            )
-          })
-        }
-        </ul>
+      <div className="skills-outer">
+        <div className="skills-wrapper">
+          {
+            languages.map((language) => {
+              var filler = []
+              if (language[2].hasOwnProperty("libraries")) { 
+                filler = language[2].libraries;
+              }
+
+              return <SingleSkill skillName={language[1]} 
+                                  skillFiller={filler} 
+                                  theme={this.context.muiTheme}/>
+            })
+          }
+        </div>
       </div>
     );
   }

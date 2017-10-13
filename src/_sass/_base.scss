@@ -208,6 +208,78 @@ div.profile-social ul li a i {
   font-size: 30px;
 }
 
+div.skills-outer {
+  overflow : hidden;
+  position : relative;
+  width    : 100%;
+}
+
+div.skills-wrapper {
+  display: block;
+}
+
+div.skills-item {
+  float         : left;
+  border-radius : 5px;
+
+}
+
+div.skill {
+  float    : left;
+  height   : 500px;
+  width    : 80px;
+  position : relative;
+}
+
+div.skill-bottom {
+  position : absolute;
+  width    : 100%;
+  bottom   : 10px;
+  height   : 350px;
+}
+
+div.skill-header {
+  position       : relative;
+  height         : 100%;
+  padding-bottom : 50px;
+  border-radius  : 3px;
+}
+
+div.skill-header-inner {
+  position: absolute;
+  width: 100%;
+  bottom : 33px;
+  height: 0px;
+}
+
+div.header-point {
+  height: 73px;
+  width: 1px;
+  position: absolute;
+  top: -73px;
+  left: 50%;
+}
+
+div.header-point-top {
+  content: '';
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  border-radius: 50%;
+  top: 0;
+  left: -3px;
+}
+
+span.skill-name {
+  top: -100px;
+  position: absolute;
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 16px;
+}
 
 a.toolbar-item {
   animation-name            : bobble;

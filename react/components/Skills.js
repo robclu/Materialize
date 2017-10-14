@@ -9,40 +9,46 @@ class SingleSkill extends Component {
   }
 
   render() {
-    var accentColor = this.props.theme.skills.accentColor;
+    var accentColor     = this.props.theme.skills.accentColor;
+    var backgroundColor = this.props.theme.skills.backgroundColor;
     return (
-      <div className="skills-item"
-           style={{ width           : '120px' }}>
-        <div className="skill">
-          <div className="skill-bottom">
-            <div className="skill-header z-depth-0"
-                style={{ backgroundColor : accentColor }}>
-              <div className="skill-visible">
-                <span className="skill-name"
-                      style={{ color : accentColor }}>
-                    {this.props.skillName}
-                </span>
-                <div className="header-point z-depth-0"
-                     style={{ backgroundColor : accentColor }}>
-                  <div className="header-point-top z-depth-0"
-                       style={{ backgroundColor : accentColor }}>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="skill-filler">
-              <ul>
-              {
-                //if (this.props.skillFiller.length === 0) {
-                //  return;
-               // }
+      <div className = "card"
+           style     = {{ margin : '20',
+                          width  : '250px',
+                          height : '250px',
+                          borderRadius : '10px' }}>
+        <div className="helper">
+        </div>
+        <div className="skill-title" style={{ color : backgroundColor }}>
+          {this.props.skillName}
+        </div>
+        <div className="card-action" style={{ padding : 'unset' }}
+            style={{  padding       : 'unset'        ,
+                      paddingTop    : '10px'         ,
+                      width         : '100%'         ,
+                      textAlign     : 'center'       ,
+                      color         : backgroundColor, 
+                      textTransform : 'uppercase'    ,
+                      fontWeight    : '600'          ,
+                      fontSize      : '20px'         }}>
+          <span>
+            {this.props.skillLevel}
+          </span>
+        </div>
+        <div className="card-reveal">
+          <span className="card-title"> This is a test </span>
+          <div>
+            <ul>
+            {
+              //if (this.props.skillFiller.length === 0) {
+              //  return;
+             // }
 
-                this.props.skillFiller.map(fillerName => {
-                  //return (<li>{fillerName}</li>);
-                })
-              }
-              </ul>
-            </div>
+              this.props.skillFiller.map(fillerName => {
+                return (<li>{fillerName}</li>);
+              })
+            }
+            </ul>          
           </div>
         </div>
       </div>
@@ -76,20 +82,29 @@ class Skills extends Component {
 
   createLanguageTab(languages) {
     return (
-      <div className="skills-outer">
-        <div className="skills-wrapper">
-          {
-            languages.map((language) => {
-              var filler = []
-              if (language[2].hasOwnProperty("libraries")) { 
-                filler = language[2].libraries;
-              }
+      <div className="skill-loaded">
+        <div className="skills-outer">
+          <div className="skills-wrapper">
+            {
+              languages.map((language) => {
+                var filler = []
+                if (language[2].hasOwnProperty("libraries")) { 
+                  filler = language[2].libraries;
+                }
+                var level = 'Proficient'
+                if (language[2].level <= 5) {
+                  level = 'Capable';
+                } else if (language[2].level <= 7) {
+                  level = 'Good';
+                }
 
-              return <SingleSkill skillName={language[1]} 
-                                  skillFiller={filler} 
-                                  theme={this.context.muiTheme}/>
-            })
-          }
+                return <SingleSkill skillName={language[1]} 
+                                    skillFiller={filler}
+                                    skillLevel={level}
+                                    theme={this.context.muiTheme}/>
+              })
+            }
+          </div>
         </div>
       </div>
     );
@@ -109,7 +124,17 @@ class Skills extends Component {
            id="skills"
            style={{ backgroundColor : theme.skills.backgroundColor }}>
         <div className="row">
-          <div className="col s12 m8 offset-m2">
+          <div className="col s10 m4 offset-s1 offset-m1">
+            <div className="section-heading">
+              <h2 style={{ color : theme.skills.titleColor }} >
+                Skills
+              </h2>
+              <p style={{ color: theme.skills.titleColor }}>
+                {this.props.jsonData.skills.description}
+              </p>
+            </div>
+          </div>
+          <div className="col s12 m6">
             {
               this.createLanguageTab(languages)
             }

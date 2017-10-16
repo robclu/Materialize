@@ -6,20 +6,62 @@ import PropTypes from 'prop-types'
 class SingleSkill extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      revealed : false
+    };
+  
+    this.handleClick = () => {
+      this.setState({ revealed: !this.state.revealed });
+    }
   }
 
-  render() {
-    var accentColor     = this.props.theme.skills.accentColor;
-    var backgroundColor = this.props.theme.skills.backgroundColor;
+  renderSkillInfo(accentColor, backgroundColor) {
     return (
-      <div className = "card"
-           style     = {{ margin : '20',
-                          width  : '250px',
-                          height : '250px',
-                          borderRadius : '10px' }}>
+      <div className = "card hover"
+           style     = {{ margin       : '20',
+                          width        : '250px',
+                          height       : '250px',
+                          borderRadius : '10px' }}
+           onClick   = {this.handleClick}>
+        <div className="helper-header">
+        </div>
+        <div className = "skill-title" 
+             style     = {{ color        : backgroundColor,
+                            fontSize     : '28px',
+                            borderBottom : '1px solid rgba(160, 160, 160, 0.2)' 
+                          }}
+             >
+          {this.props.skillName}
+        </div>
+        <div className="skill-info-list">
+          <ul>
+          {
+            this.props.skillFiller.map(fillerName => {
+              return (
+                <li style={{ color : backgroundColor}}>
+                  {fillerName}
+                </li>
+              );
+            })
+          }
+          </ul> 
+        </div>
+      </div>
+    )
+  }
+
+  renderSkillTitle(accentColor, backgroundColor) {
+    return (
+      <div className = "card hover"
+           style     = {{ margin       : '20'   ,
+                          width        : '250px',
+                          height       : '250px',
+                          borderRadius : '10px' }}
+           onClick   =  {this.handleClick}>
         <div className="helper">
         </div>
-        <div className="skill-title" style={{ color : backgroundColor }}>
+        <div className = "skill-title"
+             style     = {{ color  : backgroundColor }}>
           {this.props.skillName}
         </div>
         <div className="card-action" style={{ padding : 'unset' }}
@@ -35,24 +77,16 @@ class SingleSkill extends Component {
             {this.props.skillLevel}
           </span>
         </div>
-        <div className="card-reveal">
-          <span className="card-title"> This is a test </span>
-          <div>
-            <ul>
-            {
-              //if (this.props.skillFiller.length === 0) {
-              //  return;
-             // }
-
-              this.props.skillFiller.map(fillerName => {
-                return (<li>{fillerName}</li>);
-              })
-            }
-            </ul>          
-          </div>
-        </div>
       </div>
     )
+  }
+
+  render() {
+    var accentColor     = this.props.theme.skills.accentColor;
+    var backgroundColor = this.props.theme.skills.backgroundColor;
+    return this.state.revealed 
+      ? this.renderSkillInfo(accentColor, backgroundColor)
+      : this.renderSkillTitle(accentColor, backgroundColor);
   }
 }
 

@@ -26,19 +26,16 @@ class SingleSkill extends Component {
         <div className="helper-header">
         </div>
         <div className = "skill-title" 
-             style     = {{ color        : backgroundColor,
-                            fontSize     : '28px',
-                            borderBottom : '1px solid rgba(160, 160, 160, 0.2)' 
-                          }}
-             >
+             style     = {{ color    : backgroundColor,
+                            fontSize : '28px'         }}>
           {this.props.skillName}
         </div>
-        <div className="skill-info-list">
+        <div className="skill-info-list separator">
           <ul>
           {
             this.props.skillFiller.map(fillerName => {
               return (
-                <li style={{ color : backgroundColor}}>
+                <li className="fader" style={{ color : backgroundColor}}>
                   {fillerName}
                 </li>
               );
@@ -64,8 +61,8 @@ class SingleSkill extends Component {
              style     = {{ color  : backgroundColor }}>
           {this.props.skillName}
         </div>
-        <div className="card-action" style={{ padding : 'unset' }}
-            style={{  padding       : 'unset'        ,
+        <div className="fader separator"
+             style={{ padding       : 'unset'        ,
                       paddingTop    : '10px'         ,
                       width         : '100%'         ,
                       textAlign     : 'center'       ,
@@ -73,7 +70,7 @@ class SingleSkill extends Component {
                       textTransform : 'uppercase'    ,
                       fontWeight    : '600'          ,
                       fontSize      : '20px'         }}>
-          <span>
+          <span style={{ color : backgroundColor }}>
             {this.props.skillLevel}
           </span>
         </div>

@@ -3,6 +3,7 @@
   "languages": {
     "C++": {
       "level": 8,
+      "columns": 2,
       "libraries": [
         "C++17",
         "Boost",
@@ -14,6 +15,7 @@
     },
     "Python": {
       "level": 5,
+      "columns": 1,
       "libraries": [
         "Numpy",
         "Tensorflow",
@@ -22,6 +24,7 @@
     },
     "Javascript": {
       "level": 5,
+      "columns": 1,
       "libraries": [
         "React",
         "Three"

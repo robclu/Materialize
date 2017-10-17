@@ -8,15 +8,24 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme'
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme'
 
-import { grey900, cyan400, white, fullBlack } from 'material-ui/styles/colors'
+import { grey900,
+         blue700,
+         cyan400,
+         blueGrey900,
+         tealA700,
+         white  ,
+         fullBlack } from 'material-ui/styles/colors'
 
 import About  from './About'
 import Intro  from './Intro'
 import Skills from './Skills'
 
+const primaryColor     = tealA700;
+const primaryDarkColor = blueGrey900;
+
 const defaultTheme = getMuiTheme(lightBaseTheme, {
   palette: {
-    primary1Color      : cyan400,
+    primary1Color      : primaryColor,
     accent2Color       : grey900,
     textColor          : white,
     alternateTextColor : white,
@@ -26,12 +35,12 @@ const defaultTheme = getMuiTheme(lightBaseTheme, {
   },
   about: {
     backgroundColor : white,
-    titleColor      : cyan400
+    titleColor      : primaryColor
   },
   skills : {
-    backgroundColor : cyan400,
-    titleColor      : white,
-    accentColor     : white
+    backgroundColor       : primaryColor,
+    titleColor            : primaryDarkColor,
+    accentColor           : primaryDarkColor
   }
 })
 

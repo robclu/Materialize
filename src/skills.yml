@@ -8,6 +8,7 @@ description:
 languages:
   C++: 
     level     : 8
+    columns   : 2
     libraries :
       - C++17
       - Boost
@@ -18,6 +19,7 @@ languages:
 
   Python:
     level     : 5
+    columns   : 1
     libraries :
       - Numpy
       - Tensorflow
@@ -25,6 +27,7 @@ languages:
 
   Javascript:
     level     : 5
+    columns   : 1
     libraries :
       - React
       - Three

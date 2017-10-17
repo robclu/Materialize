@@ -78,8 +78,15 @@ div.section-heading {
   }
 }
 
-div.hover:hover {
+div.hover-pointer:hover {
   cursor: pointer;
+}
+
+div.hover-up:hover {
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30),
+              0 15px 12px rgba(0,0,0,0.22);
+
+  transition : all 0.2s ease;
 }
 
 /*
@@ -229,8 +236,13 @@ div.profile-social ul li a i {
 }
 
 div.skill-loaded {
-  display: block;
-  padding: 0 40px 0 40px;
+  display      : block;
+  padding      : 0 5% 0 5%;
+  margin-left  : 5%;
+  margin-right : 5%;
+  top          : 70%;
+  position     : absolute;
+  transform    : translateY(-50%);
 }
 
 div.helper {
@@ -302,39 +314,39 @@ div.skill-header {
 }
 
 div.skill-header-inner {
-  position: absolute;
-  width: 100%;
-  bottom : 33px;
-  height: 0px;
+  position : absolute;
+  width    : 100%;
+  bottom   : 33px;
+  height   : 0px;
 }
 
 div.header-point {
-  height: 73px;
-  width: 1px;
-  position: absolute;
-  top: -73px;
-  left: 50%;
+  height   : 73px;
+  width    : 1px;
+  position : absolute;
+  top      : -73px;
+  left     : 50%;
 }
 
 div.header-point-top {
-  content: '';
-  width: 7px;
-  height: 7px;
-  position: absolute;
-  border-radius: 50%;
-  top: 0;
-  left: -3px;
+  content       : '';
+  width         : 7px;
+  height        : 7px;
+  position      : absolute;
+  border-radius : 50%;
+  top           : 0;
+  left          : -3px;
 }
 
 span.skill-name {
-  top: -100px;
-  position: absolute;
-  width: 100%;
-  display: block;
-  text-align: center;
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 16px;
+  top            : -100px;
+  position       : absolute;
+  width          : 100%;
+  display        : block;
+  text-align     : center;
+  font-weight    : 600;
+  text-transform : uppercase;
+  font-size      : 16px;
 }
 
 div.skill-info-list {
@@ -353,6 +365,53 @@ div.skill-info-list {
     font-weight    : 900;
     padding        : 5;
   }
+}
+
+div.skills-nav-right {
+  margin-top : 0;
+  top        : 50%;
+  width      : 5%;
+  position   : absolute;
+  transform  : translateY(-50%);
+}
+
+div.skills-nav-left {
+  margin-top : 0;
+  top        : 70%;
+  width      : 5%;
+  position   : absolute;
+  transform  : translateY(-50%);
+}
+
+.skills-carousel {
+  float: left;
+}
+
+.skills-carousel:after {
+  display : block;
+  height  : 0px;
+  clear   : both;
+  float   : none;
+}
+
+.skills-nav-button {
+  display : block;
+  width   : 58px;
+  height  : 58px;
+  curson  : pointer;
+  margin  : 10;
+}
+
+.skills-tabs {
+  display  : inline-flex;
+  position : absolute;
+  width    : 95%;
+  height   : 10%
+}
+
+i.skills-nav-button-icon {
+  line-height: 58px;
+  font-size: 2.2em;
 }
 
 div.separator {

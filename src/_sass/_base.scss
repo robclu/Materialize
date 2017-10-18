@@ -235,16 +235,6 @@ div.profile-social ul li a i {
   font-size: 30px;
 }
 
-div.skill-loaded {
-  display      : block;
-  padding      : 0 5% 0 5%;
-  margin-left  : 5%;
-  margin-right : 5%;
-  top          : 70%;
-  position     : absolute;
-  transform    : translateY(-50%);
-}
-
 div.helper {
   display        : inline-block;
   height         : 80%;
@@ -271,13 +261,13 @@ div.skill-title {
   transition     : all 1s ease-in-out;
 }
 
-div.skills-outer {
+.skills-outer {
   overflow : hidden;
   position : relative;
-  width    : 100%;
+  width    : 900px;
 }
 
-div.skills-wrapper {
+.skills-wrapper {
   display: inline-flex;
 }
 
@@ -367,31 +357,15 @@ div.skill-info-list {
   }
 }
 
-div.skills-nav-right {
-  margin-top : 0;
-  top        : 50%;
-  width      : 5%;
-  position   : absolute;
-  transform  : translateY(-50%);
+.skill-loaded {
+  float : left;
+  width : 950;
 }
 
-div.skills-nav-left {
-  margin-top : 0;
-  top        : 70%;
-  width      : 5%;
-  position   : absolute;
-  transform  : translateY(-50%);
-}
-
-.skills-carousel {
-  float: left;
-}
-
-.skills-carousel:after {
-  display : block;
-  height  : 0px;
-  clear   : both;
-  float   : none;
+.skills-nav {
+  width     : 7.5%;
+  float     : left;
+  transform : translateY(50%);
 }
 
 .skills-nav-button {
@@ -402,11 +376,29 @@ div.skills-nav-left {
   margin  : 10;
 }
 
+.skills-tabs-wrapper {
+  display : inline-flex;
+  width   : 100%;
+}
+
 .skills-tabs {
-  display  : inline-flex;
-  position : absolute;
-  width    : 95%;
-  height   : 10%
+  display : inline-flex;
+  width   : 900px;
+}
+
+.skills-tab {
+  float      : left;
+  width      : 50%;
+  text-align : center;
+}
+
+.skill-type-btn {
+  width  : 150px;
+  height : 60px;
+  margin : 10 10;
+  line-height: 60px;
+  text-transform: uppercase;
+  font-weight: 900;
 }
 
 i.skills-nav-button-icon {

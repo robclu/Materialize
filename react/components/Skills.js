@@ -115,9 +115,11 @@ class Skills extends Component {
   constructor(props) {
     super(props);
     this.props.fetchJsonInfo(FETCH_SKILLS_INFO, 'skills');
+
+    this.tabs  = { languages : 0, tools : 1 };
     this.state = {
       skillsStartIndex : 0,
-      tabIndex         : 0
+      skillTabIndex    : this.tabs.languages
     };
 
     // Properties of the skill to view;
@@ -147,6 +149,14 @@ class Skills extends Component {
       } 
       this.setState({ skillsStartIndex : this.state.skillsStartIndex - 1 });
     }
+
+    this.handleLanguageSkillChange = () => {
+      this.setState({ skillTabIndex : this.tabs.languages });
+    }
+
+    this.handleToolSkillChange = () => {
+      this.setState({ skillTabIndex : this.tabs.tools });
+    }
   }
 
   // This returns a sorted array of array, from highest level to lowest level.
@@ -169,10 +179,8 @@ class Skills extends Component {
 
   createTab(skills) {
     return (
-      <div className = "skill-loaded"
-           style     = {{ width : this.skillContainerWidth,
-                          height : this.skillContainerHeight }}>
-        <div className="skills-outer" style={{ width : this.skillContainerWidth }}>
+      <div className = "skill-loaded">
+        <div className="skills-outer">
           <div className="skills-wrapper">
           {
             skills.map((skillItem, i) => {
@@ -219,15 +227,24 @@ class Skills extends Component {
     }
 
     var theme     = this.context.muiTheme;
-    var languages = this.sortByLevel(this.props.jsonData.skills.languages);
-    var tools     = this.sortByLevel(this.props.jsonData.skills.tools);
+    var skills = this.state.skillTabIndex === this.tabs.languages
+               ? this.sortByLevel(this.props.jsonData.skills.languages)
+               : this.sortByLevel(this.props.jsonData.skills.tools);
     
-    var start = (this.state.skillsStartIndex + 3 > languages.length) 
-              ? languages.length - 3 : this.state.skillsStartIndex;
+    var startIndex = this.state.skillsStartIndex + this.skillsInView;
+    var start      = (startIndex > skills.length) 
+                   ? skills.length - this.skillsInView 
+                   : this.state.skillsStartIndex;
 
-    var cursorLeft  = this.state.skillsStartIndex > 0 ? 'pointer' : 'not-allowed';
-    var cursorRight = this.state.skillsStartIndex + this.skillsInView === languages.length
-                    ? 'not-allowed' : 'pointer';
+    var cursorLeft  = this.state.skillsStartIndex > 0
+                    ? 'pointer' : 'not-allowed';
+    var cursorRight = startIndex !== skills.length
+                    ? 'pointer' : 'not-allowed';
+
+    var langHighlight = this.state.skillTabIndex === this.tabs.languages
+                      ? '4px solid ' + theme.skills.accentColor : '';
+    var toolHighlight = this.state.skillTabIndex === this.tabs.tools
+                      ? '4px solid ' + theme.skills.accentColor : '';
 
     return (
       <div className = "container"
@@ -245,36 +262,57 @@ class Skills extends Component {
             </div>
           </div>
           <div className="col s12 m6 offset-m1">
-            <div className="skills-tabs">
-              <div> A </div>
-              <div> B </div>
-            </div>
-            <div className="skills-carousel">
-              <div className="skills-nav-left">
-                <div class   = "btn-floating skills-nav-button waves-effect"
-                     onClick = {this.handleShiftRight}
-                     style   = {{ backgroundColor : theme.skills.backgroundColor }}>
-                  <i class = "material-icons skills-nav-button-icon"
-                     style = {{ cursor : cursorRight,
-                                color  : theme.skills.accentColor }}>
-                    chevron_left
-                  </i>
-                </div>    
-              </div>
-              <div className="skills-nav-right">
-                <div class   = "btn-floating skills-nav-button waves-effect"
-                     onClick = {this.handleShiftLeft}
-                     style   = {{ backgroundColor : theme.skills.backgroundColor }}>
-                  <i class = "material-icons skills-nav-button-icon"
-                     style = {{ cursor : cursorLeft,
-                                color  : theme.skills.accentColor }} >
-                    chevron_right
-                  </i>
+            <div className="">
+              <div className="skills-nav">
+                <div className="skills-nav-left">
+                  <div class   = "btn-floating skills-nav-button waves-effect"
+                       onClick = {this.handleShiftRight}
+                       style   = {{ backgroundColor : theme.skills.backgroundColor }}>
+                    <i class = "material-icons skills-nav-button-icon"
+                       style = {{ cursor : cursorRight,
+                                  color  : theme.skills.accentColor }}>
+                      chevron_left
+                    </i>
+                  </div>    
+                </div>
+                <div className="skills-nav-right">
+                  <div class   = "btn-floating skills-nav-button waves-effect"
+                       onClick = {this.handleShiftLeft}
+                       style   = {{ backgroundColor : theme.skills.backgroundColor }}>
+                    <i class = "material-icons skills-nav-button-icon"
+                       style = {{ cursor : cursorLeft,
+                                  color  : theme.skills.accentColor }} >
+                      chevron_right
+                    </i>
+                  </div>
                 </div>
               </div>
               {
-                this.createTab(languages)
+                this.createTab(skills)
               }
+              <div className="skills-nav">
+                <div className="skills-nav-left">
+                  <div class   = "btn waves-effect skill-type-btn"
+                       onClick = {this.handleLanguageSkillChange}
+                       style   = {{ backgroundColor : theme.skills.backgroundColor,
+                                    color           : theme.skills.accentColor    ,
+                                    borderBottom    : langHighlight               ,
+                                    transition      : 'border-bottom 0.3s linear' }}>
+                    Languages
+                  </div>    
+                </div>
+                <div className="skills-nav-right">
+                  <div class   = "btn waves-effect skill-type-btn"
+                       onClick = {this.handleToolSkillChange}
+                       style   = {{ backgroundColor : theme.skills.backgroundColor,
+                                    color           : theme.skills.accentColor    ,
+                                    borderBottom    : toolHighlight               ,
+                                    transition      : 'border-bottom 0.3s linear' }}>
+                    Tools
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

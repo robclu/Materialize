@@ -41,7 +41,8 @@ class Intro extends Component {
 												backgroundImage    : backgroundImage,
 												backgroundPosition : 'center center',
 												backgroundRepeat   : 'no-repeat'    ,
-												backgroundSize 		 : 'cover'       	}}>
+												backgroundSize 		 : 'cover'       	,
+												height 						 : '1200' }}>
 				<div className="banner-vcenter">
 					<div className="container">
 						<div className="row">

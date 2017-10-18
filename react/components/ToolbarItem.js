@@ -75,16 +75,16 @@ class ToolbarItem extends Component {
       verticalAlign: 'middle'
     };
 
-    var className = (hovered || this.state.animating) ? "toolbar-item" : "";
+    var className = (hovered || this.state.animating) 
+                  ? "toolbar-item-anim" : "toolbar-item";
     return(
       <a href 		    = {this.props.href}
-         className    = {className}
          ref     		  = {(link) => { this.link = link}}
          style        = {outerStyle}
          onMouseEnter = {this.handleMouseEnter}
          onMouseLeave = {this.handleMouseLeave}
       >
-        <div>
+        <div className = {className}>
         	<span style={this.context.muiTheme.prepareStyles(spanStyle)}>
         		{this.props.label}
         	</span>

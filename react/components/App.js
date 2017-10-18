@@ -31,7 +31,8 @@ const defaultTheme = getMuiTheme(lightBaseTheme, {
     alternateTextColor : white,
   },
   toolbar: {
-    backgroundColor : ''
+    backgroundColor : '',
+    alternateColor  : primaryDarkColor
   },
   about: {
     backgroundColor : white,

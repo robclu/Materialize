@@ -41,8 +41,8 @@ class ToolbarItem extends Component {
     var muiTheme       = this.context.muiTheme,
         buttonHeight   = muiTheme.button.height,
         buttonMinWidth = muiTheme.button.minWidth,
-        buttonColor    = muiTheme.baseTheme.palette.textColor,
-        buttonHovColor = muiTheme.baseTheme.palette.primary1Color,
+        buttonColor    = muiTheme.toolbar.textColor,
+        buttonHovColor = muiTheme.toolbar.itemHoverColor,
         backgroundColor= muiTheme.toolbar.backgroundColor,
         fontSize       = muiTheme.flatButton.fontSize,
         fontWeight     = muiTheme.flatButton.fontWeight,
@@ -69,10 +69,11 @@ class ToolbarItem extends Component {
     };
 
     var spanStyle = {
-      position     : 'relative',
-      paddingLeft  : this.context.muiTheme.baseTheme.spacing.desktopGutterLess,
-      paddingRight : this.context.muiTheme.baseTheme.spacing.desktopGutterLess,
-      verticalAlign: 'middle'
+      position      : 'relative',
+      paddingLeft   : this.context.muiTheme.baseTheme.spacing.desktopGutterLess,
+      paddingRight  : this.context.muiTheme.baseTheme.spacing.desktopGutterLess,
+      verticalAlign : 'middle',
+      color         : color
     };
 
     var className = (hovered || this.state.animating) 

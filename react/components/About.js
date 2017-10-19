@@ -76,12 +76,14 @@ class AboutSocial extends Component {
             }
 
             var iconClass = "fa fa-" + key + ' hoverable';
+            var theme     = this.props.theme;
             return (
               <li>
                 <a href      = {this.props.about[key]}
                    className = "btn-floating btn-large waves-effect waves-light white">
                   <i className={iconClass}
-                     style={{color : this.props.theme.about.titleColor}}/>
+                     style={{ color           : theme.about.titleColor,
+                              backgroundColor : theme.about.backgroundColor }}/>
                 </a>
               </li>
             )
@@ -108,11 +110,10 @@ class About extends Component {
 
     var theme = this.context.muiTheme;
     var about = this.props.jsonData.about;
-    console.log(this.props.jsonData.about);
     return (
-      <div className="container"
-           id       ="about"
-           style    ={{ backgroundColor: theme.about.backgroundColor}}>
+      <div className = "container"
+           id        = "about"
+           style     = {{ backgroundColor: theme.about.backgroundColor}}>
         <div className="row">
           <div className="col s12 m8 l6 offset-m2 offset-l3">
             <AboutInfo about={about} theme={theme} />

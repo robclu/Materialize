@@ -57,6 +57,10 @@ ul li {
   list-style: none;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .container {
   position       : relative;
   z-index        : 1;
@@ -67,6 +71,38 @@ ul li {
   padding-bottom : 140px;
   max-width      : none;
 }
+
+.container:before, .container:after {
+  content : " ";
+  display : table;
+}
+
+.container:after {
+
+}
+
+/* =============================================================================
+ * Margins
+ * ========================================================================== */
+.mb-xs30 {
+  margin-bottom: 30px;
+}
+
+@media (min-width: 992px) {
+
+.mb-m80 {
+  margin-bottom: 80px;
+}
+
+} /* min-width : 992px */
+
+@media (min-width: 768px) {
+
+.mb-s45 {
+  margin-bottom : 45px;
+}
+
+} /* min-width : 768 px; */
 
 /* =============================================================================
  * Section 
@@ -389,3 +425,38 @@ i.skills-nav-button-icon {
  * Resume 
  * ========================================================================== */
 
+.resume-tab {
+  padding : 10;
+  height  : 100%; 
+}
+
+.resume-tab-name {
+  text-transform : uppercase;
+  font-weight    : 900;
+  font-size      : 32px;
+  padding        : 20 20;
+  vertical-align : middle;
+}
+
+.resume-tab-icon {
+  vertical-align : middle;
+  font-size      : 32px;
+}
+
+.resume-tab-panel {
+  width   : 100%;
+  display : block!important;
+  left    : 0;
+  top     : 0;
+}
+
+.resume-exp-skill {
+  width          : 100%; 
+  padding        : 5;
+  margin         : 7 0;
+  text-transform : uppercase;
+  font-size      : 22px;
+  font-weight    : 600;
+  text-align     : center;
+  border-radius  : 5px; 
+}

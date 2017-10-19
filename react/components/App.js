@@ -18,30 +18,40 @@ import { grey900,
 
 import About  from './About'
 import Intro  from './Intro'
+import Resume from './Resume'
 import Skills from './Skills'
 
-const primaryColor     = tealA700;
-const primaryDarkColor = blueGrey900;
+const primaryColor       = tealA700;
+const primaryAccentColor = '#f7f7f7';
+const primaryDarkColor   = blueGrey900;
 
 const defaultTheme = getMuiTheme(lightBaseTheme, {
   palette: {
     primary1Color      : primaryColor,
     accent2Color       : grey900,
-    textColor          : white,
-    alternateTextColor : white,
+    textColor          : primaryAccentColor,
+    alternateTextColor : primaryAccentColor,
   },
   toolbar: {
-    backgroundColor : '',
+    backgroundColor : ''                ,
+    textColor       : primaryAccentColor,
+    itemHoverColor  : primaryColor      ,
     alternateColor  : primaryDarkColor
   },
   about: {
-    backgroundColor : white,
+    backgroundColor : primaryAccentColor,
     titleColor      : primaryColor
   },
   skills : {
-    backgroundColor       : primaryColor,
-    titleColor            : primaryDarkColor,
-    accentColor           : primaryDarkColor
+    backgroundColor : primaryColor,
+    titleColor      : primaryDarkColor,
+    accentColor     : primaryDarkColor
+  },
+  resume : {
+    backgroundColor : primaryAccentColor,
+    titleColor      : primaryDarkColor  ,
+    accentColor     : primaryColor      ,
+    cardColor       : primaryDarkColor
   }
 })
 
@@ -61,6 +71,7 @@ const App = () => (
                                  "Developer"          ]}/>
         <About  />
         <Skills />
+        <Resume />
       </div>
     </MuiThemeProvider>
   </div>

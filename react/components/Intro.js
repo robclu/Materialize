@@ -38,11 +38,11 @@ class Intro extends Component {
 		var backgroundImage = 'url(' + this.props.backgroundImg + ')';
 		return (
 			<section style={{ backgroundColor    : this.props.backgroundColor,
-												backgroundImage    : backgroundImage,
-												backgroundPosition : 'center center',
-												backgroundRepeat   : 'no-repeat'    ,
-												backgroundSize 		 : 'cover'       	,
-												height 						 : '1200' }}>
+												backgroundImage    : backgroundImage 					 ,
+												backgroundPosition : 'center center' 					 ,
+												backgroundRepeat   : 'no-repeat'     					 ,
+												backgroundSize 		 : 'cover'       	 					 ,
+												height 						 : '1200'  									 }}>
 				<div className="banner-vcenter">
 					<div className="container">
 						<div className="row">

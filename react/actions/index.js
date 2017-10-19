@@ -4,6 +4,7 @@ export const FETCH_SITE_INFO   = 'FETCH_SITE_INFO';
 export const FETCH_PAGE        = 'FETCH_PAGE';
 export const FETCH_ABOUT_INFO  = 'FETCH_ABOUT_INFO';
 export const FETCH_SKILLS_INFO = 'FETCH_SKILLS_INFO';
+export const FETCH_RESUME_INFO = 'FETCH_RESUME_INFO';
 
 const ROOT_URL = 'http://127.0.0.1:4000';
 const API_URL  = '/api/v1/';

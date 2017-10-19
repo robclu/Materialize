@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
-import SiteInfoReducer from './SiteInfoReducer'
-import PageInfoReducer from './PageInfoReducer'
-import JsonInfoReducer from './JsonInfoReducer'
+import SiteInfoReducer     from './SiteInfoReducer'
+import PageInfoReducer     from './PageInfoReducer'
+import JsonInfoReducer     from './JsonInfoReducer'
 
 const rootReducer = combineReducers({
   siteInfo: SiteInfoReducer,

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect }          from 'react-redux'
+import PropTypes            from 'prop-types'
+
 import { fetchJsonInfo, FETCH_SKILLS_INFO } from '../actions/index'
-import PropTypes from 'prop-types'
 
 class SingleSkill extends Component {
   constructor(props) {
@@ -22,20 +23,27 @@ class SingleSkill extends Component {
       transition      : 'all 0.5s linear'     ,
       backgroundColor : this.props.theme.skills.accentColor
     };
+
+    this.shiftWidth   = 40;
+    this.opacityScale = 0.9;
+  }
+
+  getStyle() {
+    var shift   = this.props.shift * (-this.props.size - this.shiftWidth);
+    var tform   = 'scale(' + this.props.scale + ')';
+    var opacity = this.props.scale < this.opacityScale ? 0 : 1;
+    return Object.assign({ left      : shift   , 
+                           transform : tform   ,
+                           opacity   : opacity }, this.outerStyle);
+
   }
 
   renderSkillInfo(accentColor, backgroundColor) {
-    var shift = this.props.shift * (this.props.size * -1 - 40);
-    var tform = 'scale(' + this.props.scale + ')';
-    var opacity = this.props.scale < 0.9 ? 0 : 1;
-    var style = Object.assign({ left      : shift   , 
-                                transform : tform   ,
-                                opacity   : opacity }, this.outerStyle);
     return (
       <div className = "card hover-pointer hover-up"
            onClick   = {this.handleClick}
-           style     = {style}>
-        <div className="helper-header"></div>
+           style     = {this.getStyle()}>
+        <div className="center-helper-header"></div>
         <div className = "skill-title" 
              style     = {{ color    : backgroundColor,
                             fontSize : '28px'         }}>
@@ -69,17 +77,11 @@ class SingleSkill extends Component {
       onClick    = this.handleClick;
     }
 
-    var shift   = this.props.shift * (this.props.size * -1 - 40);
-    var tform   = 'scale(' + this.props.scale + ')';
-    var opacity = this.props.scale < 0.9 ? 0 : 1;
-    var style = Object.assign({ left      : shift  ,
-                                transform : tform  ,
-                                opacity   : opacity}, this.outerStyle);
     return (
       <div className = {className}
            onClick   = {onClick}
-           style     = {style}>
-        <div className="helper">
+           style     = {this.getStyle()}>
+        <div className="center-helper">
         </div>
         <div className = "skill-title"
              style     = {{ color  : backgroundColor }}>
@@ -179,7 +181,7 @@ class Skills extends Component {
 
   createTab(skills) {
     return (
-      <div className = "skill-loaded">
+      <div className="skills-container">
         <div className="skills-outer">
           <div className="skills-wrapper">
           {
@@ -264,7 +266,7 @@ class Skills extends Component {
           <div className="col s12 m6 offset-m1">
             <div className="">
               <div className="skills-nav">
-                <div className="skills-nav-left">
+                <div>
                   <div class   = "btn-floating skills-nav-button waves-effect"
                        onClick = {this.handleShiftRight}
                        style   = {{ backgroundColor : theme.skills.backgroundColor }}>
@@ -275,7 +277,7 @@ class Skills extends Component {
                     </i>
                   </div>    
                 </div>
-                <div className="skills-nav-right">
+                <div>
                   <div class   = "btn-floating skills-nav-button waves-effect"
                        onClick = {this.handleShiftLeft}
                        style   = {{ backgroundColor : theme.skills.backgroundColor }}>
@@ -291,28 +293,23 @@ class Skills extends Component {
                 this.createTab(skills)
               }
               <div className="skills-nav">
-                <div className="skills-nav-left">
-                  <div class   = "btn waves-effect skill-type-btn"
-                       onClick = {this.handleLanguageSkillChange}
-                       style   = {{ backgroundColor : theme.skills.backgroundColor,
-                                    color           : theme.skills.accentColor    ,
-                                    borderBottom    : langHighlight               ,
-                                    transition      : 'border-bottom 0.3s linear' }}>
-                    Languages
-                  </div>    
-                </div>
-                <div className="skills-nav-right">
-                  <div class   = "btn waves-effect skill-type-btn"
-                       onClick = {this.handleToolSkillChange}
-                       style   = {{ backgroundColor : theme.skills.backgroundColor,
-                                    color           : theme.skills.accentColor    ,
-                                    borderBottom    : toolHighlight               ,
-                                    transition      : 'border-bottom 0.3s linear' }}>
-                    Tools
-                  </div>
+                <div class   = "btn waves-effect skill-type-btn"
+                     onClick = {this.handleLanguageSkillChange}
+                     style   = {{ backgroundColor : theme.skills.backgroundColor,
+                                  color           : theme.skills.accentColor    ,
+                                  borderBottom    : langHighlight               ,
+                                  transition      : 'border-bottom 0.3s linear' }}>
+                  Languages
+                </div>    
+                <div class   = "btn waves-effect skill-type-btn"
+                     onClick = {this.handleToolSkillChange}
+                     style   = {{ backgroundColor : theme.skills.backgroundColor,
+                                  color           : theme.skills.accentColor    ,
+                                  borderBottom    : toolHighlight               ,
+                                  transition      : 'border-bottom 0.3s linear' }}>
+                  Tools
                 </div>
               </div>
-
             </div>
           </div>
         </div>

@@ -1,0 +1,93 @@
+{
+  "experience": {
+    "netronome": {
+      "name": "Netronome Systems",
+      "title": "Software Engineer",
+      "skills": [
+        "C",
+        "Lua"
+      ],
+      "time": {
+        "start": "Apr 2016",
+        "end": "Sep 2016"
+      },
+      "description": "Refactored in-house packet generation software to allow configurable bursty traffic patterns, of up to 100Gbps, using a custom memory allocator, improving performance by up to 60% over existing in-house packet generator.\nPatched open source packet generation engine to support Netronome’s network card drivers and in-house traffic pattern generator, allowing the full performance of the Netronome network cards to be tested using open source testing software."
+    },
+    "symmetry": {
+      "name": "Symmetry Electronics",
+      "title": "Electrical Engineer",
+      "skills": [
+        "Swift",
+        "Objective-C",
+        "C",
+        "Embedded devices"
+      ],
+      "time": {
+        "start": "Feb 2015",
+        "end": "Apr 2016"
+      },
+      "links": {
+        "product": {
+          "name": "Product page",
+          "link": "http://www.semiconductorstore.com/pages/asp/Item.asp?ItemNumber=WAB1"
+        },
+        "repo": {
+          "name": "Repository",
+          "link": "https://github.com/SymmetryElectronics/EVK2-WAB"
+        },
+        "wiki": {
+          "name": "Wiki",
+          "link": "https://github.com/SymmetryElectronics/EVK2-WAB/wiki"
+        }
+      },
+      "description": "Designed and implemented the WAB1 board – a development board which bridges Bluetooth Low Energyand Cellular technologies – allowing simple proof-of-concept development for customers.\nWrote an iOS app for the WAB1 board, as well as examples and documentation for the product."
+    }
+  },
+  "education": {
+    "mphil": {
+      "uni": "University of Cambridge",
+      "date": {
+        "start": "Sep 2016",
+        "end": "Sep 2017"
+      },
+      "degree": "MPhil in Scientific Computing",
+      "gpa": "8.3 / 10 - First class with Distinction",
+      "courses": [
+        "GPU programming",
+        "Mesh generation",
+        "Numerical integration and differentiation",
+        "PDEs and ODEs",
+        "Linear systems",
+        "Non-linear systems"
+      ],
+      "thesis": {
+        "title": "Embedded boundary methods on highly parallel architectures",
+        "abstract": null,
+        "extra": null
+      }
+    },
+    "hons": {
+      "uni": "University of the Witwatersrand",
+      "date": {
+        "start": "Feb 2012",
+        "end": "Nov 2015"
+      },
+      "degree": "BSc Electrical Engineering (Information)",
+      "gpa": "8.0 / 10 - Cum Laude",
+      "courses": [
+        "Multi-variable calculus",
+        "Computer networks",
+        "Computational maths",
+        "Microprocessor architecture",
+        "Phyics",
+        "Electric circuits",
+        "Signal processing"
+      ],
+      "thesis": {
+        "title": "Parahaplo - A Heterogeneous Haplotype Solver",
+        "abstract": null,
+        "extra": null
+      }
+    }
+  }
+}

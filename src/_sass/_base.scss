@@ -37,9 +37,9 @@ figure {
   padding: 0;
 }
 
-/*
+/* =============================================================================
  * General
- */
+ * ========================================================================== */
 
 body {
   font                          : $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
@@ -53,16 +53,35 @@ body {
   font-kerning                  : normal;
 }
 
-section {
-  position : relative;
-  z-index  : 2;
-}
-
 ul li {
   list-style: none;
 }
 
-div.section-heading { 
+.container {
+  position       : relative;
+  z-index        : 1;
+  margin-left    : auto;
+  margin-right   : auto;
+  width          : 100%;
+  padding-top    : 140px;
+  padding-bottom : 140px;
+  max-width      : none;
+}
+
+/* =============================================================================
+ * Section 
+ * ========================================================================== */
+
+.section {
+  position : relative;
+  z-index  : 2;
+}
+
+.section-padding {
+  padding : 140px 0 140px;
+}
+
+.section-heading { 
   h2 {
     text-transform : uppercase;
     font-size      : 40px;
@@ -78,26 +97,26 @@ div.section-heading {
   }
 }
 
-div.hover-pointer:hover {
+/* =============================================================================
+ * Hover
+ * ========================================================================== */
+
+.hover-pointer:hover {
   cursor: pointer;
 }
 
-div.hover-up:hover {
+.hover-up:hover {
   box-shadow: 0 19px 38px rgba(0,0,0,0.30),
               0 15px 12px rgba(0,0,0,0.22);
 
   transition : all 0.2s ease;
 }
 
-/*
- * Custom components
- */
+/* =============================================================================
+ * Banner
+ * ========================================================================== */
 
-div.banner-vcenter {
-/*
-  display        : table-cell;
-  vertical-align : middle;
-*/
+.banner-vcenter {
   display         : flex;
   justify-content : center;
   align-items     : center;
@@ -105,7 +124,7 @@ div.banner-vcenter {
   height          : 90%;
 }
 
-div.banner-content {
+.banner-content {
   text-align: center;
  
   h1 {
@@ -152,18 +171,11 @@ div.banner-content {
   }
 }
 
-div.container {
-  position       : relative;
-  z-index        : 1;
-  margin-left    : auto;
-  margin-right   : auto;
-  width          : 100%;
-  padding-top    : 140px;
-  padding-bottom : 140px;
-  max-width      : none;
-}
+/* =============================================================================
+ * Profile
+ * ========================================================================== */
 
-div.profile-info {
+.profile-info {
   padding-left  : 15px;
   padding-right : 15px;
 
@@ -198,13 +210,9 @@ div.profile-info {
     font-weight    : 700;
     font-size      : 18px;
   }
-
-  h2 {
-
-  }
 }
 
-div.profile-image {
+.profile-image {
   padding       : 8px;
   border-radius : 6px;
   box-shadow    : 0 3px 12px 0.06px rgba(0,0,0,0.2);
@@ -214,7 +222,7 @@ div.profile-image {
   }
 }
 
-div.profile-social {
+.profile-social {
   text-align: center;
 
   ul {
@@ -231,25 +239,29 @@ div.profile-social {
   }
 }
 
-div.profile-social ul li a i {
+.profile-social ul li a i {
   font-size: 30px;
 }
 
-div.helper {
+/* =============================================================================
+ * Skills
+ * ========================================================================== */
+
+.center-helper {
   display        : inline-block;
   height         : 80%;
   vertical-align : middle;
   transition     : all 1s ease-in-out; 
 }
 
-div.helper-header {
+.center-helper-header {
   display        : inline-block;
   height         : 20%;
   vertical-align : middle;
   transition     : all 1s ease-in-out;
 }
 
-div.skill-title {
+.skill-title {
   vertical-align : middle;
   display        : inline-block;
   text-align     : center;
@@ -271,75 +283,12 @@ div.skill-title {
   display: inline-flex;
 }
 
-div.skills-item {
-  float         : left;
-  border-radius : 5px;
-  overflow      : hidden;
-  padding-bottom: 3px;
-
-  &:hover {
-    cursor: pointer;
-  }
+.skills-container {
+  float : left;
+  width : 950;
 }
 
-div.skill {
-  float    : left;
-  height   : 500px;
-  width    : 80px;
-  position : relative;
-}
-
-div.skill-bottom {
-  position : absolute;
-  width    : 100%;
-  bottom   : 10px;
-  height   : 350px;
-}
-
-div.skill-header {
-  position       : relative;
-  height         : 100%;
-  padding-bottom : 50px;
-  border-radius  : 3px;
-}
-
-div.skill-header-inner {
-  position : absolute;
-  width    : 100%;
-  bottom   : 33px;
-  height   : 0px;
-}
-
-div.header-point {
-  height   : 73px;
-  width    : 1px;
-  position : absolute;
-  top      : -73px;
-  left     : 50%;
-}
-
-div.header-point-top {
-  content       : '';
-  width         : 7px;
-  height        : 7px;
-  position      : absolute;
-  border-radius : 50%;
-  top           : 0;
-  left          : -3px;
-}
-
-span.skill-name {
-  top            : -100px;
-  position       : absolute;
-  width          : 100%;
-  display        : block;
-  text-align     : center;
-  font-weight    : 600;
-  text-transform : uppercase;
-  font-size      : 16px;
-}
-
-div.skill-info-list {
+.skill-info-list {
   padding-top    : 25;
   padding-bottom : 25;
   padding-left   : 10;
@@ -355,11 +304,6 @@ div.skill-info-list {
     font-weight    : 900;
     padding        : 5;
   }
-}
-
-.skill-loaded {
-  float : left;
-  width : 950;
 }
 
 .skills-nav {
@@ -393,12 +337,12 @@ div.skill-info-list {
 }
 
 .skill-type-btn {
-  width  : 150px;
-  height : 60px;
-  margin : 10 10;
-  line-height: 60px;
-  text-transform: uppercase;
-  font-weight: 900;
+  width          : 150px;
+  height         : 60px;
+  margin         : 10 10;
+  line-height    : 60px;
+  text-transform : uppercase;
+  font-weight    : 900;
 }
 
 i.skills-nav-button-icon {
@@ -406,16 +350,12 @@ i.skills-nav-button-icon {
   font-size: 2.2em;
 }
 
-div.separator {
+.separator {
   border-top : 1px solid rgba(160, 160, 160, 0.2);
   transition : all 1s ease-in-out;
 }
 
-div.fader {
-  animation: fadein 2s;
-}
-
-li.fader {
+.fader {
   animation: fadein 2s;
 }
 
@@ -424,17 +364,18 @@ li.fader {
   to   { opacity: 1 }
 }
 
-/*
+/* =============================================================================
  * Toolbar 
- */
+ * ========================================================================== */
+
 .toolbar-item {
   font-size   : 20px;
   font-weight : 700;
 }
 
 .toolbar-item-anim {
-  font-size   : 20px;
-  font-weight : 700;
+  font-size                 : 20px;
+  font-weight               : 700;
   animation-name            : bobble;
   animation-duration        : 0.6s;
   animation-iteration-count : 1;
@@ -443,3 +384,8 @@ li.fader {
 @keyframes bobble {
   50% { transform: translate(0,-15px); }
 }
+
+/* =============================================================================
+ * Resume 
+ * ========================================================================== */
+

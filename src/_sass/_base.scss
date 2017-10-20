@@ -22,6 +22,9 @@ $accent2Color: #009688;
 $accent3Color         : #00BCD4;
 $alternate-text-color : $clr-grey-900;
 
+$medium-screen-size : 768px;
+$large-screen-size  : 992px;
+
 body,
 h1, h2, h3, h4, h5, h6,
 p, 
@@ -57,10 +60,6 @@ ul li {
   list-style: none;
 }
 
-.text-center {
-  text-align: center;
-}
-
 .container {
   position       : relative;
   z-index        : 1;
@@ -78,6 +77,37 @@ ul li {
 }
 
 .container:after {
+
+}
+
+/* =============================================================================
+ * Alignment
+ * ========================================================================== */
+
+.text-center {
+  text-align: center;
+}
+
+.hctr-content {
+  margin : 0 auto;
+}
+
+.vctr-content-s {
+  display     : grid;
+  align-items : center;
+}
+
+.vctr-content {
+  display     : flex;
+  align-items : center;
+}
+
+@media (min-width: $large-screen-size) {
+
+.vctr-content-m {
+  display     : flex;
+  align-items : center;
+}
 
 }
 
@@ -425,17 +455,27 @@ i.skills-nav-button-icon {
  * Resume 
  * ========================================================================== */
 
+
 .resume-tab {
   padding : 10;
   height  : 100%; 
 }
 
-.resume-tab-name {
+.resume-tab-name-s {
+  display: none;
+}
+
+@media (min-width : $medium-screen-size) {
+
+.resume-tab-name-m {
+  display        : initial; 
   text-transform : uppercase;
   font-weight    : 900;
   font-size      : 32px;
   padding        : 20 20;
   vertical-align : middle;
+}
+
 }
 
 .resume-tab-icon {
@@ -448,15 +488,27 @@ i.skills-nav-button-icon {
   display : block!important;
   left    : 0;
   top     : 0;
+  position: relative;
+}
+
+.resume-tab-panel-timeline {
+  position: relative;
+  height  : 100px;
+  content : '';
+  left    : 50%;
+  top     : 0;
+  height  : 100px;
+  width   : 4px;
+  background-color: #000;
 }
 
 .resume-exp-skill {
   width          : 100%; 
-  padding        : 5;
-  margin         : 7 0;
+  padding        : 5 15;
+  margin         : 7 7;
   text-transform : uppercase;
-  font-size      : 22px;
+  font-size      : 19px;
   font-weight    : 600;
   text-align     : center;
-  border-radius  : 5px; 
+  border-radius  : 7px; 
 }

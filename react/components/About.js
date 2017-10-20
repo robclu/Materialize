@@ -19,8 +19,8 @@ class AboutInfo extends Component {
                        color         : this.props.theme.about.titleColor }}>
             About
           </h2>
-          <p style={{fontSize     : '19px',
-                     fontWeight   : '400' ,
+          <p style={{fontSize     : '22px',
+                     fontWeight   : '500' ,
                      color        : '#666',
                      borderBottom : '1px solid rgba(0,0,0,.2)',
                      paddingBottom: '30px',

@@ -483,12 +483,31 @@ i.skills-nav-button-icon {
   font-size      : 32px;
 }
 
-.resume-tab-panel {
-  width   : 100%;
-  display : block!important;
-  left    : 0;
-  top     : 0;
-  position: relative;
+.resume-panel {
+  width      : 100%;
+  display    : block!important;
+  left       : 0;
+  top        : 0;
+  position   : relative;
+}
+
+.resume-content-container {
+  min-height : 800px;
+  position   : relative;
+}
+
+.resume-container-active {
+  position   : absolute;
+  width      : 100%;
+  opacity    : 1;
+  transition : opacity 0.4s linear;
+}
+
+.resume-container-inactive {
+  position   : absolute; 
+  width      : 100%;
+  opacity    : 0;
+  transition : opacity 0.4s linear;
 }
 
 .resume-tab-panel-timeline {
@@ -502,7 +521,7 @@ i.skills-nav-button-icon {
   background-color: #000;
 }
 
-.resume-exp-skill {
+.resume-exp-skill, .resume-edu-course {
   width          : 100%; 
   padding        : 5 15;
   margin         : 7 7;
@@ -510,5 +529,60 @@ i.skills-nav-button-icon {
   font-size      : 19px;
   font-weight    : 600;
   text-align     : center;
-  border-radius  : 7px; 
+  border-radius  : 7px;
+  display        : block;
+}
+
+.resume-edu-course-fixed {
+  min-width  : 150px;
+  min-height : 60px;
+  line-height: 60px;
+}
+
+/* =============================================================================
+ * Card
+ * ========================================================================== */
+
+.board {
+  border-radius : 5px;
+  padding       : 0;
+}
+
+.board-header, .board-content-heading {
+  text-transform : uppercase;
+  font-weight    : 600;
+  font-size      : 19px;
+  vertical-align : middle;
+  text-align     : center;
+  padding        : 10 0;
+}
+
+.board-content-heading {
+  text-transform : uppercase;
+  font-weight    : 600;
+  font-size      : 19px;
+  vertical-align : middle;
+  text-align     : left;
+  padding        : 5 0;
+}
+
+.board-header-item {
+  margin : 5 auto;
+}
+
+.board-content {
+  font-size      : 22px;
+  font-weight    : 500;
+  color          : #666;
+  border-bottom  : 1px solid rgba(0,0,0,0.2);
+  white-space    : pre-wrap;
+  text-align     : justify;
+
+  p {
+    padding : 30px 0;
+  }
+}
+
+.board-tags {
+  padding: 10px 0;
 }

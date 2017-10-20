@@ -57,9 +57,10 @@ education:
     degree  : MPhil in Scientific Computing
     gpa     : 8.3 / 10 - First class with Distinction
     courses :
-      - GPU programming
+      - GPUs
       - Mesh generation
-      - Numerical integration and differentiation
+      - Numerical integration
+      - Numerical differentiation
       - PDEs and ODEs
       - Linear systems
       - Non-linear systems
@@ -76,10 +77,10 @@ education:
     degree  : BSc Electrical Engineering (Information)
     gpa     : 8.0 / 10 - Cum Laude
     courses :
-      - Multi-variable calculus
+      - Calculus
       - Computer networks
       - Computational maths
-      - Microprocessor architecture
+      - Microprocessors
       - Phyics
       - Electric circuits
       - Signal processing

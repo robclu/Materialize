@@ -22,8 +22,16 @@ $accent2Color: #009688;
 $accent3Color         : #00BCD4;
 $alternate-text-color : $clr-grey-900;
 
-$medium-screen-size : 768px;
-$large-screen-size  : 992px;
+/* =============================================================================
+ * Screen sizes :
+ *  - Mobile         : (-s)  : < 600px
+ *  - Tablets        : (-m)  : > 600px
+ *  - Desktops       : (-l)  : > 992px
+ *  - Large desktops : (-xl) : > 1200
+ * ===========================================================================*/
+$medium-screen-size      : 600px;
+$large-screen-size       : 992px;
+$extra-large-screen-size : 1200px;
 
 body,
 h1, h2, h3, h4, h5, h6,
@@ -521,7 +529,7 @@ i.skills-nav-button-icon {
   background-color: #000;
 }
 
-.resume-exp-skill, .resume-edu-course {
+.resume-exp-skill {
   width          : 100%; 
   padding        : 5 15;
   margin         : 7 7;
@@ -533,10 +541,23 @@ i.skills-nav-button-icon {
   display        : block;
 }
 
-.resume-edu-course-fixed {
-  min-width  : 150px;
-  min-height : 60px;
-  line-height: 60px;
+
+.resume-edu-course {
+  width          : 100%; 
+  text-transform : uppercase;
+  font-size      : 17px;
+  display        : block;
+  font-weight    : 600;
+  text-align     : center; 
+}
+
+@media (min-width: $large-screen-size) {
+
+.resume-edu-course-l {
+  width     : 80%; 
+  font-size : 18px;
+}
+
 }
 
 /* =============================================================================

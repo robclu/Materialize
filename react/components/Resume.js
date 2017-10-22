@@ -12,14 +12,14 @@ class EducationPanel extends Component {
   renderCourses() {
     var theme = this.props.theme;
     return (
-      <div className="row">
+      <div className = "row"
+           style     = {{ color   : theme.accentColor }}>
       {
         this.props.data.courses.map(course => {
           return (
-            <div className="col s10 m6 l4 offset-s1">
-              <div style={{ display : 'block' }}>
-                <span className = "resume-edu-course resume-edu-course-fixed z-depth-1"
-                      style     = {{ backgroundColor : theme.accentColor }}>
+            <div className="col s6 xl3">
+              <div className="vctr-content" style={{ margin : 5, height : '60px' }}>
+                <span className = "resume-edu-course resume-edu-course-l">
                   {course}
                 </span>
               </div>

@@ -55,7 +55,7 @@ education:
       start : Sep 2016
       end   : Sep 2017
     degree  : MPhil in Scientific Computing
-    gpa     : 8.3 / 10 - First class with Distinction
+    gpa     : 8.3 / 10 (First class with Distinction)
     courses :
       - GPUs
       - Mesh generation
@@ -66,7 +66,31 @@ education:
       - Non-linear systems
     thesis  :
       title    : Embedded boundary methods on highly parallel architectures
-      abstract :
+      abstract : >-
+        Embedded boundary methods on Cartesian grids are favourable for GPU
+        computing due to the structures meshes which are used for the
+        computation. However, embedded geometries result in cut-cells in the
+        Cartesian grid, which need to be handled explicitly to remove restrictions
+        on the CFL number for the cut-cells which would lead to degraded performance.
+
+        The work explores the parallelisation of a cut-cell method on a CPU
+        using native threads, as well as on the GPU using CUDA. The implementation
+        focusses on maximising data processing on block of data on the CPU version
+        to ensure that the block's data remains in L1 cache while being processed.
+        The GPU implementation takes a similar approach by trying to maximise the
+        use of shared memory and registers.
+
+        Performance profiling was performed using a quad-core Intel i7 6700K CPU
+        and an NVIDIA K20c GPU. The CPU implementation achieved a 3.2x speedup
+        using all four cores compared to a single threaded implementation, and
+        25x and 8x speedups for the GPU implementation compared to single and
+        four thread implementations, respectively.
+
+        GPU performance was limited by the amount of available shared memory and
+        registers for a block, and it is expected that more recent GPU architectures
+        would provide even greater improvement. Only a single embedded boundary method
+        was implemented, and others are an area of future work which can then be
+        compared to the current implementation.
       extra    :
 
   hons:
@@ -75,7 +99,7 @@ education:
       start : Feb 2012
       end   : Nov 2015
     degree  : BSc Electrical Engineering (Information)
-    gpa     : 8.0 / 10 - Cum Laude
+    gpa     : 8.0 / 10 (Cum Laude)
     courses :
       - Calculus
       - Computer networks

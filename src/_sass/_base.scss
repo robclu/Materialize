@@ -587,6 +587,22 @@ i.skills-nav-button-icon {
   padding        : 5 0;
 }
 
+.board-content-heading-title {
+  display : inline-block;
+  width   : 130px;
+}
+
+.board-content-heading-sep {
+  display : inline-block;
+  width   : 20px;
+}
+
+.board-content-heading-info {
+  display     : inline-block;
+  font-weight : 500;
+}
+
+
 .board-header-item {
   margin : 5 auto;
 }
@@ -596,6 +612,18 @@ i.skills-nav-button-icon {
   font-weight    : 500;
   color          : #666;
   border-bottom  : 1px solid rgba(0,0,0,0.2);
+  white-space    : pre-wrap;
+  text-align     : justify;
+
+  p {
+    padding : 30px 0;
+  }
+}
+
+.board-content-no-border {
+  font-size      : 22px;
+  font-weight    : 500;
+  color          : #666;
   white-space    : pre-wrap;
   text-align     : justify;
 

@@ -60,7 +60,23 @@ class EducationPanel extends Component {
             </div>
           </div>       
         </div>
+        <div className="col s10 offset-s1 board-content-no-border">
+          <div className="board-content-heading" style={headingStyle}>
+            <span className="board-content-heading-title">GPA</span>
+            <span className="board-content-heading-sep">:</span>
+            <span className="board-content-heading-info">
+              {this.props.data.gpa}
+            </span>
+          </div>
+        </div>
         <div className="col s10 offset-s1 board-content">
+          <div className="board-content-heading" style={headingStyle}>
+            <span className="board-content-heading-title">Thesis</span>
+            <span className="board-content-heading-sep">:</span>
+            <span className="board-content-heading-info">
+              {this.props.data.thesis.title}
+            </span>
+          </div>
         </div>
         <div className="col s10 offset-s1">
           <div className="board-content-heading" style={headingStyle}>

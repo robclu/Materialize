@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 import { connect }          from 'react-redux'
 import PropTypes            from 'prop-types'
+import PDFJS                from 'pdfjs-dist'
 
 import { fetchJsonInfo, FETCH_RESUME_INFO } from '../actions/index'
+
+
+const objToArray = (data) => {
+  return Object.keys(data).map(k => { return data[k]; })
+}
 
 class EducationPanel extends Component {
   constructor(props) {
@@ -42,6 +48,8 @@ class EducationPanel extends Component {
       color : theme.titleColor
     }
 
+    var link = this.props.data.thesis.link ? this.props.data.thesis.link : '';
+
     return (
       <div className="col s12 z-depth-2 board" style={boardStyle}>
         <div className="row z-depth-1">
@@ -73,9 +81,17 @@ class EducationPanel extends Component {
           <div className="board-content-heading" style={headingStyle}>
             <span className="board-content-heading-title">Thesis</span>
             <span className="board-content-heading-sep">:</span>
-            <span className="board-content-heading-info">
+            <a className = "board-content-heading-info"
+               style     = {{ color : theme.accentColor }}
+               href      = {link}
+               target    = "_blank">
               {this.props.data.thesis.title}
-            </span>
+            </a>
+          </div>
+          <div>
+            <p>
+              {String(this.props.data.thesis.abstract).replace(/\n/g,"\n\n")}
+            </p>
           </div>
         </div>
         <div className="col s10 offset-s1">
@@ -95,6 +111,40 @@ class EducationPanel extends Component {
 class ExperiencePanel extends Component {
   constructor(props) {
     super(props);
+  }
+
+  renderLinks() {
+    if (!this.props.data.links) {
+      return <div></div>
+    }
+
+    var theme        = this.props.theme;
+    var headingStyle = { 
+      color        : theme.titleColor,
+      marginBottom : '10',
+      marginTop    : '-20'
+    }
+
+    return (
+      <div className="board-content-heading" style={headingStyle}>
+        <span className="board-content-heading-title">Links</span>
+        <span className="board-content-heading-sep">:</span>
+        <div className="resume-exp-link-list resume-exp-link-list-m">
+        {
+          objToArray(this.props.data.links).map(item => {
+            return (
+              <a className = "resume-exp-link"
+                 style     = {{ color : theme.accentColor }}
+                 href      = {item.link}
+                 target    = "_blank">
+                  {item.name}
+              </a>
+            )
+          })
+        }
+        </div>
+      </div>
+    )
   }
 
   render() {
@@ -127,6 +177,9 @@ class ExperiencePanel extends Component {
           <p>
             {String(this.props.data.description).replace(/\n/g,"\n\n")}
           </p>
+          { 
+            this.renderLinks()
+          }
         </div>
         <div className = "col s10 offset-s1">
           <div className="vctr-content-m vctr-content-s hctr-content board-tags">
@@ -296,10 +349,6 @@ class Resume extends Component {
     if (!resumeData) {
       console.log("waiting!!");
       return;
-    }
-
-    var objToArray = (data) => {
-      return Object.keys(data).map(k => { return data[k]; })
     }
 
     var experience = objToArray(resumeData.experience);

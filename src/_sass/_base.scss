@@ -509,12 +509,14 @@ i.skills-nav-button-icon {
   width      : 100%;
   opacity    : 1;
   transition : opacity 0.4s linear;
+  display    : initial;
 }
 
 .resume-container-inactive {
   position   : absolute; 
   width      : 100%;
   opacity    : 0;
+  display    : none; 
   transition : opacity 0.4s linear;
 }
 
@@ -539,6 +541,23 @@ i.skills-nav-button-icon {
   text-align     : center;
   border-radius  : 7px;
   display        : block;
+}
+
+.resume-exp-link {
+  margin : 5;
+  padding : 5;
+}
+
+.resume-exp-link-list {
+  display: block;
+}
+
+@media (min-width: $medium-screen-size) {
+
+.resume-exp-link-list-m {
+  display: inline-block;
+}
+
 }
 
 
@@ -598,7 +617,7 @@ i.skills-nav-button-icon {
 }
 
 .board-content-heading-info {
-  display     : inline-block;
+  display     : inline;
   font-weight : 500;
 }
 
